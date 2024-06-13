@@ -1,0 +1,151 @@
+##################################################
+------------------ Frontend ---------------------
+##################################################
+
+------ Create a vite react javaScript Project ----
+npm create vite@latest my-project 
+  cd frontend
+  npm install
+  npm install react-router-dom
+  npm run dev
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+npm install axios
+--------------------------------------------------
+------------------ Home Page ---------------------
+
+1- Delete a App.css, change index.css, add text font family to index.css, and we start coding from App.jsx
+2- Make an [assets.js] in assets folder to link all images
+3- Create a [components] folder and start with a [Navbar]
+4- create a Pages in [pages] folder
+
+5- Setup a the "react routers" in main.jsx, and create a route for pages in App.jsx
+
+6- Create a [Header.jsx] in components folder 
+7- Create a [Menu.jsx] in components folder, and make a menu_list in assets.js for a food images
+
+8- We make a [StoreContext.jsx] as a context, and link it in main.jsx by "StoreContextProvider"
+
+9- Create a [FoodDisplay.jsx] in components folder, to display all foods by categorys
+10-
+11 - Create a [Footer.jsx] in components folder, and add it to App.jsx
+
+12- Make a Home page "Responsive" by modify all components to resize it to mobile and tablet size
+
+----------------------------------------------------
+
+1- Create a [LoginPopup.jsx] in components folder, to Login & Sign up account at the same time, and link it with App.jsx and Navbar.jsx
+2- Create a [Cart.jsx] in pages folder, to display a food that added to list, and link it with App.jsx and Navbar.jsx
+3- Add a {getTotalCartAmount} function in [StoreContext] file, and export it to Cart file
+4- Create a [PlaceOrder.jsx] in pages folder, to make order by  writing an information of persone 
+
+
+##################################################
+------------------ Backend ---------------------
+##################################################
+
+npm init -y
+npm install express
+npm install mongoose
+npm install nodemon  ====> when we save our project, server will re-started
+npm install jsonwebtoken  ======> to create an authentication system
+npm install bcrypt ===>  to encrypt the users data and store it in database
+npm install cors   ===>  get permission to connect our frontend with backend. And it is a mechanism supports secure cross-origin requests and data transfers between browsers and servers.
+npm install dotenv  ===> to apple use environment variable in our project
+npm install body-parser  ===> using it we will parse the data coming from the user
+npm install multer   ===> apple create an image store system
+npm install validator  ===> to check if email and password valide (corect) or not
+npm install stripe  ===> for payment
+
+
+1- To able use ES6 (ECMAScript 6), it means use "import" instead "require"
+2- create [server.js] and create an express server
+
+3- Set database for a backend with mongoDB Atlas database  bEk9ubuU2FhXqt6B
+    [1] create an new project from {ORGANIZATION}
+    [2] create a database from new project and take a password and link
+    [3] from {Network Access} add new IP address like this ==>  0.0.0.0  to allwo us to access database from anywhere, and delete the aothe ip addresses
+
+4- create [db.js] in config folder, and connect with data base by thw link after modify it, and add the function to server.js file
+5- Create the [foodModel.js] in models folder
+
+6- Create a [foodController.js] in controller folder, and create {addFood} function
+7- Create a [foodRoute.js] in routes folder, and create an {Image Storage Engine} by multer
+8- connect modell --with--> controller, and controller --with--> route, and the route --with--> server 
+
+9- Add {allFood & deleteFood} function in foodContoller, and connect it with foodRoute
+
+
+
+##################################################
+------------------ Admin ---------------------
+##################################################
+
+------ Create a vite react javaScript Project and Tailwindcss----
+npm create vite@latest .  ==> react => javaScript
+npm install
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+npm install react-router-dom
+npm install axios  ==> to create a network requests (GET, POST, ..),  is a promise-based HTTP Client for node.js and the browser.
+npm install react-toastify  ==> Use it to style and customize toast messages (notifications) in React app
+
+
+1- Delete a App.css, change index.css, add text font family to index.css, and we start coding from App.jsx
+2- Setup a the "react routers" in main.jsx, and create a route for pages in App.jsx
+*- Add pages routes in [App.js] file
+3- Create [Navbar.jsx & Sidebar.jsx] files in components folder 
+4- Create [AddPage.jsx] in pages folder, and connect it with database by {add-food} router
+5- Add {react-toastify} to App.js
+6- Create [ListPage.jsx] to pages folder, and connect it with database by {add-food} router
+
+
+################################################################################
+--------- Backend & Frontend => User Authentication & food cart data -----------
+################################################################################
+
+1- Create [userController.js] in controller folder 
+2- Create [userRoute.js] in routes folder 
+3- Create [userModel.js] in models folder 
+
+4- After write all authentication code we connect it with frontend in [ LoginPopup.jsx & StoreContext.jsx ] file
+
+5- in frontend also we fetch all food data to [FoodDisplay.jsx] and write a functions in [StoreContext.jsx]
+
+6- Create [cartController.js] in controller folder, and add {addToCart, removeFromCart, getCart} functions
+7- Create [cartRoute.js] in routes folder
+And this cart data will save in ( users => cartData ) in mongoDB 
+
+8- After that go to frontend and modify some functions in [StoreContext.jsx]
+
+
+################################################################################
+--------- Backend & Frontend => User Payment -----------
+################################################################################
+
+1- Create [orderController.js] in controller folder 
+2- Create [orderRoute.js] in routes folder 
+3- Create [orderModel.js] in models folder 
+
+
+
+
+##################################################
+------------------ Backend & Admin & Frontend => Duyurular ---------------------
+##################################################
+
+$$ backend $$
+1- Create [announcementController.js] in controller folder 
+2- Create [announcementRoute.js] in routes folder 
+3- Create [announcementModel.js] in models folder 
+4- and control server.js to add the router 
+
+$$ admin $$
+
+1- Create [AddAnnouncementPage.jsx] in pages folder
+1- Create [ListAnnouncementPage.jsx] in pages folder
+4- and control App.jsx to add the path of pages
